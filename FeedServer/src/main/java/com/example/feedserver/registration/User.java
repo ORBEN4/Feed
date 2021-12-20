@@ -38,6 +38,13 @@ public class User implements Idable {
         this.creationTime = creationTime;
     }
 
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+        this.email = null;
+        this.id = generateId();
+        this.creationTime = new Date();
+    }
 
     public String getUsername() {
         return username;
