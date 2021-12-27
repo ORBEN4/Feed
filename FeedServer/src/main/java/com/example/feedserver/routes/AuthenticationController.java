@@ -4,9 +4,12 @@ import com.example.feedserver.constant.Controllers;
 import com.example.feedserver.memorymanagers.MemoryManager;
 import com.example.feedserver.memorymanagers.RamMemoryManager;
 import com.example.feedserver.registration.User;
-import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -42,17 +45,19 @@ public class AuthenticationController extends RouterController {
 
     @GetMapping("Admin")
     @ResponseBody
-    @PreAuthorize("hasAuthority('APPROLE_Admin')")
+//    @PreAuthorize("hasAuthority('APPROLE_Admin')")
     public String Admin() {
         return "Admin message";
     }
 
     @GetMapping("/register")
-    public Object register(String personalNumber, String password) {
+    public Object register(@RequestParam String personalNumber, @RequestParam(defaultValue = "Aa123456") String password) {
         try {
-            return this.users.addObject(new User(personalNumber, password));
+//            System.out.println("\n\t\t\n\t\t\n\ue000\ue001\ue002\n\t\t\t\t\n");
+            return new ResponseEntity<>(this.users.addObject(new User(personalNumber, password)), HttpStatus.OK);
+//            return this.users.addObject(new User(personalNumber, password));
         } catch (Exception e) {
-            return e.getMessage();
+            return new ResponseEntity<>(e, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

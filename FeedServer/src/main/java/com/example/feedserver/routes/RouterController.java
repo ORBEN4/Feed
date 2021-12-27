@@ -1,7 +1,6 @@
 package com.example.feedserver.routes;
 
 import com.example.feedserver.constant.Controllers;
-import org.reflections.Reflections;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +14,6 @@ import java.util.Set;
 public class RouterController {
     private final String domain = "http://localhost:8080";
 
-
     @GetMapping(path = {"", "/menu"})
     protected String menu() {
         StringBuilder menu = new StringBuilder("<h1>Main Menu</h1>");
@@ -24,7 +22,12 @@ public class RouterController {
 //                classes)  {
 //            menu.append(getAll(clazz, 2));
 //        }
-        new HashSet(Arrays.asList(AuthenticationController.class, MasterController.class, TestController.class)).stream().map(((c) -> menu.append(getAll((Class) c, 2))));
+//        new HashSet(Arrays.asList(AuthenticationController.class, MasterController.class, TestController.class)).stream().map(((c) -> menu.append(getAll((Class) c, 2))));
+        Class[] classes = {AuthenticationController.class, MasterController.class, TestController.class};
+        for (Class clazz :
+                classes) {
+            menu.append(getAll(clazz, 2));
+        }
         return menu.toString();
     }
 
