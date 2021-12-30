@@ -1,9 +1,9 @@
-package com.example.feedserver.routes;
+package com.example.feedserver.controllers;
 
 import com.example.feedserver.constant.Controllers;
 import com.example.feedserver.memorymanagers.MemoryManager;
 import com.example.feedserver.memorymanagers.RamMemoryManager;
-import com.example.feedserver.registration.User;
+import com.example.feedserver.registration.datastructure.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 //import org.springframework.security.access.prepost.PreAuthorize;

@@ -1,10 +1,8 @@
-package com.example.feedserver.registration;
+package com.example.feedserver.registration.datastructure;
 
 import com.example.feedserver.helpers.Idable;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.regex.Pattern;
 
 public class User implements Idable {

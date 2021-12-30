@@ -1,6 +1,7 @@
-package com.example.feedserver.routes;
+package com.example.feedserver.controllers;
 
 import com.example.feedserver.constant.Controllers;
+import com.example.feedserver.registration.memorymanager.MySqlMemoryManager;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,6 +23,12 @@ public class TestController extends RouterController {
 //    @PreAuthorize("hasAuthority('APPROLE_Admin')")
     public String Admin() {
         return "Admin message";
+    }
+
+
+    @GetMapping("SQL")
+    public Object tryToConnect(String rawQuery){
+        return new MySqlMemoryManager().test(rawQuery);
     }
 }
 

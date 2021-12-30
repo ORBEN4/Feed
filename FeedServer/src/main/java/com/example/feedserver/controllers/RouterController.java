@@ -1,4 +1,4 @@
-package com.example.feedserver.routes;
+package com.example.feedserver.controllers;
 
 import com.example.feedserver.constant.Controllers;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
 @RestController
 @RequestMapping(Controllers.ROOT)

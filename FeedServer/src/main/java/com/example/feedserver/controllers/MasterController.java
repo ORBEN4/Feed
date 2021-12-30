@@ -1,4 +1,4 @@
-package com.example.feedserver.routes;
+package com.example.feedserver.controllers;
 
 import com.example.feedserver.constant.Controllers;
 import org.springframework.web.bind.annotation.GetMapping;
