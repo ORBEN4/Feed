@@ -34,7 +34,7 @@ public class RouterController {
     }
 
     private String getAll(Class clazz, Integer headlineSize) {
-        StringBuilder stringBuilder = new StringBuilder("<h" + headlineSize.toString() + ">" + clazz.getSimpleName().substring(0, clazz.getSimpleName().indexOf("Controller")) + "</h" + headlineSize.toString() + ">");
+        StringBuilder stringBuilder = new StringBuilder("<title>Feed</title>").append("<h" + headlineSize.toString() + ">" + clazz.getSimpleName().substring(0, clazz.getSimpleName().indexOf("Controller")) + "</h" + headlineSize.toString() + ">");
         Object[] methodsList = getMethodsList(clazz);
         for (int i = 0; i < methodsList.length - 9; i++) {
             stringBuilder.append(methodsList[i]);
