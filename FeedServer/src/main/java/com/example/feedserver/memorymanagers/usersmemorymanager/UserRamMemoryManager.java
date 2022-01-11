@@ -1,8 +1,7 @@
 package com.example.feedserver.memorymanagers.usersmemorymanager;
 
-import com.example.feedserver.helpers.Idable;
 import com.example.feedserver.memorymanagers.RamMemoryManager;
-import com.example.feedserver.registration.datastructure.User;
+import com.example.feedserver.memorymanagers.datatype.User;
 
 public class UserRamMemoryManager extends RamMemoryManager<User> {
     @Override
