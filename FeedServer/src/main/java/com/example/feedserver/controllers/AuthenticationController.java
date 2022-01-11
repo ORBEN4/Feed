@@ -3,7 +3,7 @@ package com.example.feedserver.controllers;
 import com.example.feedserver.constant.Controllers;
 import com.example.feedserver.memorymanagers.MemoryManager;
 import com.example.feedserver.memorymanagers.RamMemoryManager;
-import com.example.feedserver.registration.datastructure.User;
+import com.example.feedserver.memorymanagers.datatype.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 //import org.springframework.security.access.prepost.PreAuthorize;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(Controllers.AUTHENTICATION)
-public class AuthenticationController extends RouterController {
+public class  AuthenticationController extends RouterController {
     MemoryManager<User> users = new RamMemoryManager<>();
 
 //    @GetMapping("/greet")
