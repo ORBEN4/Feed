@@ -1,5 +1,6 @@
 package com.example.feedserver.memorymanagers.datastructure.sql.query;
 
+import com.example.feedserver.helpers.FeedException;
 import com.example.feedserver.memorymanagers.datastructure.sql.QueryType;
 import com.example.feedserver.memorymanagers.datastructure.sql.Statementable;
 import com.example.feedserver.memorymanagers.datatype.Property;
@@ -23,7 +24,7 @@ public class Query implements Statementable {
     }
 
     @Override
-    public PreparedStatement build(Connection connection) throws Exception {
+    public PreparedStatement build(Connection connection) throws FeedException {
         try {
             PreparedStatement statement = connection.prepareStatement(buildQueryStructure());
             for (int index = 0; index < properties.size(); index++) {
@@ -32,7 +33,7 @@ public class Query implements Statementable {
             return statement;
         } catch (SQLException throwables) {
             // TODO: 09/01/2022 add custom exception
-            throw new Exception(throwables);
+            throw new FeedException(throwables);
         }
     }
 

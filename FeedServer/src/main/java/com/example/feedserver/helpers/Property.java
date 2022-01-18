@@ -2,8 +2,8 @@ package com.example.feedserver.helpers;
 
 @Deprecated
 public class Property<T> {
-    private T value;
-    private String type;
+    private final T value;
+    private final String type;
 
     public Property(T value) {
         this.type = value.getClass().getSimpleName();

@@ -14,7 +14,7 @@ public class RouterController {
 
     @GetMapping(path = {"", "/menu"})
     protected String menu() {
-        StringBuilder menu = new StringBuilder("<h1>Main Menu</h1>").append("<a href=\"http://localhost:8080/explorer/index.html#theme=Litera&uri=/\">HAL-BROWSER</a>");
+        StringBuilder menu = new StringBuilder("<body style= \"background-color:#FFFFFF\" ><h1>Main Menu</h1></body>").append("<a href=\"http://localhost:8080/explorer/index.html#theme=Litera&uri=/\">HAL-BROWSER</a>");
 //        Set<Class> classes = new HashSet(Arrays.asList(AuthenticationController.class, MasterController.class, TestController.class)).stream().map(((c)->menu.append(getAll((Class) c, 2))));
 //        for (Class clazz :
 //                classes)  {

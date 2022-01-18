@@ -1,5 +1,7 @@
 package com.example.feedserver.memorymanagers.datastructure.sql;
 
+import com.example.feedserver.helpers.FeedException;
+
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -19,7 +21,7 @@ public class Procedure implements Statementable {
     }
 
     @Override
-    public Statement build(Connection connection) throws Exception {
+    public Statement build(Connection connection) throws FeedException {
         try {
             CallableStatement statement = connection.prepareCall(buildQueryStructure());
 //            for (int index = 1; index <= getInputCount(); index++) {
@@ -30,7 +32,7 @@ public class Procedure implements Statementable {
             return statement;
         } catch (SQLException throwables) {
             // TODO: 09/01/2022 add custom exception
-            throw new Exception(throwables);
+            throw new FeedException(throwables);
         }
     }
 

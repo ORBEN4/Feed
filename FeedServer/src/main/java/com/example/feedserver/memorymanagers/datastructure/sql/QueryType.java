@@ -51,6 +51,8 @@ public enum QueryType {
         return query;
     }
 
+    @org.jetbrains.annotations.NotNull
+    @org.jetbrains.annotations.Contract(mutates = "this")
     public String getQueryWithCondition() {
         lastIndex++;
         return query + " WHERE {" + lastIndex + "}";

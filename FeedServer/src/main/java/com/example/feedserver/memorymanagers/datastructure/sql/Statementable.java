@@ -1,10 +1,12 @@
 package com.example.feedserver.memorymanagers.datastructure.sql;
 
+import com.example.feedserver.helpers.FeedException;
+
 import java.sql.Connection;
 import java.sql.Statement;
 
 public interface Statementable {
-    public Statement build(Connection connection) throws Exception;
+    Statement build(Connection connection) throws FeedException;
 
-    public Integer getInputCount();
+    Integer getInputCount();
 }
